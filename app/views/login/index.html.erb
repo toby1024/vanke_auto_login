@@ -1,0 +1,20 @@
+<% if flash[:login_error] %>
+<div style="font-size: 16px;"><span><%= flash[:login_error] %></span></div>
+<% end %>
+<%= bootstrap_form_tag(url: "/login", label_errors: true, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-6") do |f| %>
+  <%= f.text_field :phone, label: '手机号' %>
+  <%= f.password_field :password, label: '密码' %>
+  <%= f.form_group do %>
+  <%= f.submit "自动登录", class: "btn btn-success" %>
+  <% end %>
+<% end %>
+
+<div>
+  使用说明：<br/>
+  首先：需要联系3-1801在系统中登记手机号码<br/>
+  然后：使用万科的密码直接登录，登录成功以后，会显示最近获取到的积分信息（最多显示50条）<br/>
+  最后：第一次登录成功以后，每天10点系统会自动登录一次，帮助获取积分<br/>
+
+  <p class="lead" style="color: red;">注意：所有密码是明文保存在数据库中的，因为登录万科系统需要使用该密码，如果采用可解密的算法加密保存，没有什么意义，所以请将登录万科的密码修改为简单密码，不要和微信，QQ，支付宝密码相同,不要使用身份证号码组合！</p>
+
+</div>
