@@ -90,8 +90,8 @@ class User < ApplicationRecord
 
     response_data = User.login(phone, password)
 
-    vk_id = response_data["body"]["AgentInfo"]["Id"]
     if response_data["state"]["errCode"] == 10000
+      vk_id = response_data["body"]["AgentInfo"]["Id"]
       update(password: plant_password, vk_id: vk_id)
       access_token = response_data["body"]["access_token"]
       refresh_token = response_data["body"]["refresh_token"]
