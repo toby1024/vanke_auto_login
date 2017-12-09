@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :login, only: [:index, :new, :create]
 
   resources :user_points, only: :index
+
+  resources :weixin, only: [:index, :create]
 end
