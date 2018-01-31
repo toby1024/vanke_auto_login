@@ -37,6 +37,8 @@ class User < ApplicationRecord
           get_point(access_token, refresh_token, user)
         end
       end
+
+      User.where('created_at < ?', Time.current - 30.days).destroy_all
       logger.info '--------auto login over----------'
     end
 
