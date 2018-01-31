@@ -38,7 +38,7 @@ class User < ApplicationRecord
         end
       end
 
-      User.where('created_at < ?', Time.current - 30.days).destroy_all
+      UserPoint.where('created_at < ?', Time.current - 30.days).destroy_all
       logger.info '--------auto login over----------'
     end
 
