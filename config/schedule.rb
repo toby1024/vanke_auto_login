@@ -27,6 +27,15 @@ every '0 10 * * *' do
   runner "User.auto_login"
 end
 
+every '0 15 * * *' do
+  runner "User.auto_login"
+end
+
+every '0 20 * * *' do
+  runner "User.auto_login"
+end
+
+
 every 1.day do
   runner "User.auto_check"
 end
